@@ -1,7 +1,7 @@
 {
   "name": "C-S-S",
   "version": "1.0",
-  "description": "DubHacks let's go!!!",
+  "description": "Changes the cookies setting if it is a http webpage",
   "permissions": ["activeTab", "declarativeContent", "storage", "contentSettings"],
   "background": {
     "scripts": ["background.js"],
