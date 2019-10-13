@@ -2,7 +2,7 @@
   "name": "C-S-S",
   "version": "1.0",
   "description": "DubHacks let's go!!!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "networkingPrivate"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -13,8 +13,8 @@
   "content_scripts":
   [
       {
-          "matches": ["*://*/*"],
-          "js": ["jquery-3.3.1.min.js","test.js"],
+          "matches": ["*://*/"],
+          "js": ["jquery-3.3.1.min.js","test.js", "secureWebCheck.js"],
           "run_at": "document_start"
       }
   ],
