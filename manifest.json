@@ -13,13 +13,13 @@
   "content_scripts":
   [
       {
-          "matches": ["http://*/*"],
-          "js": ["jquery-3.3.1.min.js","warns.js"],
+          "matches": ["https://*/*"],
+          "js": ["jquery-3.3.1.min.js","reset.js"],
           "run_at": "document_start"
       },
       {
-          "matches": ["https://*/*"],
-          "js": ["jquery-3.3.1.min.js","test.js"],
+          "matches": ["http://*/*"],
+          "js": ["jquery-3.3.1.min.js","changeCookieSetting.js"],
           "run_at": "document_start"
       }
   ],

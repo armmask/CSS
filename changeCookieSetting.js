@@ -1,9 +1,9 @@
 
-console.log("script is running")
-
 window.addEventListener('load', function () {
-    console.log("success!!")
     setTimeout("getPassword()", 1000);
+    chrome.runtime.sendMessage({pageType: 'insecure'}, function(response) {
+      console.log(response.farewell);
+    });
 });
 
 

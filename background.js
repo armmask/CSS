@@ -1,28 +1,18 @@
-
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([{
-      conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {hostEquals: "*/", schemes: ["*"]},
-        css: ["input[type='password']"]
-      })
-      ],
-          actions: [new chrome.declarativeContent.ShowPageAction()]
-    }]);
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    let message = "";
+    chrome.contentSettings.cookies.get({primaryUrl:'http://*/*'},function(details){message+='Cookies Before: '+details.setting + " ";});
+    if (request.pageType == "insecure") {
+      chrome.contentSettings.cookies.set({
+        'primaryPattern': 'http://*/*',
+        'setting': 'session_only'
+      });
+      chrome.contentSettings.cookies.get({primaryUrl:'http://*/*'},function(details){message+='Cookies After: '+details.setting;});
+      setTimeout(function(){alert("Insecure page, cookies will be set to session only. " + message);}, 2000);
+    } else {
+      chrome.contentSettings.cookies.set({
+        'primaryPattern': 'http://*/*',
+        'setting': 'allow'
+      });
+    }
   });
-});
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  let url = request.url;
-  console.log("fetched: " + url)
-  chrome.tabs.update({
-     url: url
-   });
-});
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  console.log("cookies.js is running!");
-  let detail = {primaryPattern:"http://*", ResourceIdentifier:"CookiesContentSetting", setting:"session_only"};
-  document.contentSettings.cookies(detail);
-  console.log("post cookies");
-});
