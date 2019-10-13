@@ -13,7 +13,7 @@
   "content_scripts":
   [
       {
-          "matches": ["*://*/"],
+          "matches": ["*://*/*"],
           "js": ["jquery-3.3.1.min.js","test.js"],
           "run_at": "document_start"
       }

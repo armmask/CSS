@@ -1,8 +1,12 @@
 
-document.addEventListener('DOMContentLoaded', function () {
+console.log("script is running")
+
+window.addEventListener('load', function () {
     console.log("success!!")
     setTimeout("getPassword()", 1000);
 });
+
+
 
 function getPassword() {
     $("input").each(function () {
@@ -10,8 +14,8 @@ function getPassword() {
         if(key == "password"){
           console.log("Be careful when you put in password")
         }else{
-          console.log("No password on this webpage")
+          console.log("Not a password tag")
         }
     });
-    console.log("Done!!")
+    console.log("Finished")
 }
