@@ -13,8 +13,13 @@
   "content_scripts":
   [
       {
-          "matches": ["*://*/"],
-          "js": ["jquery-3.3.1.min.js","test.js", "secureWebCheck.js"],
+          "matches": ["http://*/*"],
+          "js": ["jquery-3.3.1.min.js","warns.js"],
+          "run_at": "document_start"
+      },
+      {
+          "matches": ["https://*/*"],
+          "js": ["jquery-3.3.1.min.js","test.js"],
           "run_at": "document_start"
       }
   ],
