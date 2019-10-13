@@ -6,17 +6,17 @@ window.addEventListener('load', function () {
     });
 });
 
-
-
 function getPassword() {
-    $("input").each(function () {
-        let key = $(this).attr("type");
-        if(key == "password"){
-          alert("login page!")
-          console.log("Be careful when you put in password")
-        }else{
-          console.log("Not a password tag")
-        }
-    });
-    console.log("Finished")
+  let warning = false;
+  $("input").each(function () {
+      let key = $(this).attr("type");
+      console.log("running");
+      if(key == "password"){
+        console.log("find");
+        warning = true;
+      }
+  });
+  if (warning) {
+    setTimeout(function(){alert("Avoid entering your credentials on this webpage");}, 2500);
+  }
 }
