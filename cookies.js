@@ -1,14 +1,6 @@
-"use strict";
-console.log("cookies is running!");
-/*chrome.cookies.getAll("", function(Cookie[] cookies) {
-  for(i = 0; i <= cookies.length; i = i + 1) {
-    var cookie = cookies[i];
-    console.log(cookie.name);
-  }
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  console.log("cookies.js is running!");
+  let detail = {primaryPattern:"http://*", ResourceIdentifier:"CookiesContentSetting", setting:"session_only"};
+  document.contentSettings.cookies(detail);
+  console.log("post cookies");
 });
-*/
-let cookie = document.cookie;
-console.log(cookie);
-
-
-console.log(chrome.cookies);

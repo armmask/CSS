@@ -1,1 +1,4 @@
-alert("Don't enter your credentials here!")
+window.onload = function() {
+  alert("Don't enter your credentials here!");
+  
+};

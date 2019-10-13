@@ -2,7 +2,7 @@
   "name": "C-S-S",
   "version": "1.0",
   "description": "DubHacks let's go!!!",
-  "permissions": ["activeTab", "declarativeContent", "storage", "networkingPrivate"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "contentSettings"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
